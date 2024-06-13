@@ -1,0 +1,13 @@
+Reading pref.tcl
+
+# 10.5c
+
+# vsim -novopt fifo_top -c -do "run -all;exit" 
+# Start time: 16:06:09 on Apr 29,2022
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# ** Error: (vsim-3170) Could not find 'fifo_top'.
+#         Searched libraries:
+#             /home/rahul.v/Assign/Async fifo_Rahul/env/work
+# Error loading design
+# End time: 16:06:09 on Apr 29,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
