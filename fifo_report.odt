@@ -1,0 +1,24 @@
+﻿Fifo verification SV project Report
+
+1. Test cases
+ A.Fifo_full_test :-> 1.Till FIFO become FULL all checks passed, Once FIFO become FULL,immediately after wr_err and wr_ack check failed.(both need to change states immediately)
+ B.Fifo_empty_test:->1.After fifo become FULL, when we start reading data at that time location=15, rd_ack check failed, and after fifo become EMPTY, rd_ack and rd_err check failed.
+ C.Fifo_reset_test:-> 1.when reset is applied, din,wr_en,FULL and ALMOST_FULL checks failed.(Full and almost full fluctuating) 
+ D.fifo_multiple_tests:->1. wr_ack and rd_ack check failed up to 2 locations are filled in FIFO. (When Read after Write , multiple times)
+ E.fifo_both_test:->1. Randomly wr_ack and rd_ack check failed. (When Writing and Reading happen at the same time).
+
+
+
+2.Functional coverage :-> 100%
+
+3. Code Coverage :-> 100% with one exclusion.
+    (In the if...else if..else condition: we have two conditions
+	A.[(wptr==rptr) && almost_empty])
+	B.[((wptr==rptr)&& almost_full)]
+	so here condition B is masked by condition A. because of else..if condition.
+
+4.Bugs found :-> 
+   A. Reset(Clear) is not working as per requirement. when reset applied,full and almost_full get spike and after one pulse in clock cycle they become high.
+   B. There is one cycle delay while performing reading operation from FIFO.
+   C. Read_count and write_count flags are not there in the design.
+   D. Once we apply Reset signal output signal Dout does not go Zero. 
